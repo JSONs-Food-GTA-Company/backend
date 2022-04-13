@@ -12,7 +12,25 @@ export class ProductService {
         private productsRepository: typeof Product,
     ) {}
 
-    create(dto: ProductDto) {
-        return this.productsRepository.create();
+    async create(product: ProductDto) {
+        return await this.productsRepository.create(
+            {
+                name: product.name,
+                description: product.description,
+                image_url: product.image_url,
+                price: product.price,
+                restaurant_id:
+                    product.restaurant_id,
+            },
+        );
+    }
+
+    async list() {
+        const products =
+            await this.productsRepository.findAll(
+                { where: { restaurant_id: 2 } },
+            );
+
+        return products;
     }
 }

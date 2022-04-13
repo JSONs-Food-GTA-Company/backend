@@ -1,13 +1,17 @@
 import {
     IsNotEmpty,
-    IsNumber,
     IsString,
 } from 'class-validator';
+import { Product } from 'src/product/product.entity';
 
-export class ProductDto {
+export class RestaurantDto {
     @IsString()
     @IsNotEmpty()
     name: string;
+
+    @IsString()
+    @IsNotEmpty()
+    address: string;
 
     @IsString()
     @IsNotEmpty()
@@ -15,13 +19,11 @@ export class ProductDto {
 
     @IsString()
     @IsNotEmpty()
-    image_url: string;
+    logo_url: string;
 
-    @IsNumber()
+    @IsString()
     @IsNotEmpty()
-    price: number;
+    owner: string;
 
-    @IsNumber()
-    @IsNotEmpty()
-    restaurant_id: number;
+    products: Product[];
 }

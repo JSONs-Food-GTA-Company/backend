@@ -1,4 +1,6 @@
 import { Sequelize } from 'sequelize-typescript';
+import { Product } from 'src/product/product.entity';
+import { Restaurant } from 'src/restaurant/restaurant.entity';
 
 export const databaseProviders = [
     {
@@ -13,8 +15,8 @@ export const databaseProviders = [
                 database: 'globotech',
             });
             sequelize.addModels([
-                //restaurantes,
-                //produtos,
+                Restaurant,
+                Product,
             ]);
             await sequelize.sync();
             return sequelize;
