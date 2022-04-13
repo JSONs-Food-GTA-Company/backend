@@ -1,7 +1,4 @@
-import {
-    Inject,
-    Injectable,
-} from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { ProductDto } from './dto';
 import { Product } from './product.entity';
 
@@ -13,23 +10,17 @@ export class ProductService {
     ) {}
 
     async create(product: ProductDto) {
-        return await this.productsRepository.create(
-            {
-                name: product.name,
-                description: product.description,
-                image_url: product.image_url,
-                price: product.price,
-                restaurant_id:
-                    product.restaurant_id,
-            },
-        );
+        return await this.productsRepository.create({
+            name: product.name,
+            description: product.description,
+            image_url: product.image_url,
+            price: product.price,
+            restaurant_id: product.restaurant_id,
+        });
     }
 
     async list() {
-        const products =
-            await this.productsRepository.findAll(
-                { where: { restaurant_id: 2 } },
-            );
+        const products = await this.productsRepository.findAll();
 
         return products;
     }
