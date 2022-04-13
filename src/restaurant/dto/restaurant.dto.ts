@@ -1,7 +1,4 @@
-import {
-    IsNotEmpty,
-    IsString,
-} from 'class-validator';
+import { IsNotEmpty, IsString } from 'class-validator';
 import { Product } from 'src/product/product.entity';
 
 export class RestaurantDto {
@@ -18,7 +15,6 @@ export class RestaurantDto {
     description: string;
 
     @IsString()
-    @IsNotEmpty()
     logo_url: string;
 
     @IsString()

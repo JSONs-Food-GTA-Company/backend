@@ -1,4 +1,6 @@
 import {
+    BadRequestException,
+    HttpStatus,
     Inject,
     Injectable,
 } from '@nestjs/common';
@@ -14,25 +16,44 @@ export class RestaurantService {
     ) {}
 
     async create(restaurant: RestaurantDto) {
-        return await this.restaurantsRepository.create(
-            {
+        try {
+            const restaurant_created = await this.restaurantsRepository.create({
                 name: restaurant.name,
-                description:
-                    restaurant.description,
+                description: restaurant.description,
                 address: restaurant.address,
                 owner: restaurant.owner,
                 logo_url: restaurant.logo_url,
-                products: restaurant.products,
-            },
-        );
+            });
+
+            return restaurant_created;
+        } catch (error) {
+            throw new BadRequestException({
+                statusCode: HttpStatus.BAD_REQUEST,
+                message: 'Restaurant already exists!',
+                error: 'Bad request',
+            });
+        }
     }
 
-    async list() {
-        const restaurant =
-            this.restaurantsRepository.findOne({
-                where: { id: 2 },
-                include: Product,
-            });
+    async listAllRestaurants() {
+        const restaurant = await this.restaurantsRepository.findAll({
+            attributes: {
+                exclude: ['createdAt', 'updatedAt'],
+            },
+            order: [['name', 'ASC']],
+        });
+
+        return restaurant;
+    }
+
+    async listCardapio(restaurant_id: number) {
+        const restaurant = this.restaurantsRepository.findOne({
+            where: { id: restaurant_id },
+            include: Product,
+            attributes: {
+                exclude: ['createdAt', 'updatedAt'],
+            },
+        });
 
         return restaurant;
     }
