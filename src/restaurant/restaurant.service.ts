@@ -29,7 +29,7 @@ export class RestaurantService {
         } catch (error) {
             throw new BadRequestException({
                 statusCode: HttpStatus.BAD_REQUEST,
-                message: 'Restaurant already exists!',
+                message: 'Já existe um restaurante com esse nome',
                 error: 'Bad request',
             });
         }
