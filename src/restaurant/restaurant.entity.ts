@@ -9,7 +9,9 @@ import { Product } from 'src/product/product.entity';
 
 @Table
 export class Restaurant extends Model {
-    @Column
+    @Column({
+        unique: true,
+    })
     name: string;
 
     @Column
@@ -25,5 +27,5 @@ export class Restaurant extends Model {
     owner: string;
 
     @HasMany(() => Product)
-    products: Product[];
+    products?: Product[];
 }
