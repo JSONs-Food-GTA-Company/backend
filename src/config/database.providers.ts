@@ -1,4 +1,6 @@
 import { Sequelize } from 'sequelize-typescript';
+import { Product } from 'src/product/product.entity';
+import { Restaurant } from 'src/restaurant/restaurant.entity';
 
 export const databaseProviders = [
     {
@@ -6,15 +8,15 @@ export const databaseProviders = [
         useFactory: async () => {
             const sequelize = new Sequelize({
                 dialect: 'postgres',
-                host: 'database',
-                port: 5432,
+                host: 'localhost',
+                port: 5434,
                 username: 'root',
                 password: 'password',
                 database: 'globotech',
             });
             sequelize.addModels([
-                //restaurantes,
-                //produtos,
+                Restaurant,
+                Product,
             ]);
             await sequelize.sync();
             return sequelize;

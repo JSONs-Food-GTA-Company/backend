@@ -1,12 +1,28 @@
-import { Controller, Get } from '@nestjs/common';
-import { OlaService } from './restaurant.service';
+import {
+    Body,
+    Controller,
+    Get,
+    Post,
+} from '@nestjs/common';
 
-@Controller('status')
-export class OlaController {
-    constructor(private olaService: OlaService) {}
+import { RestaurantDto } from './dto';
+import { RestaurantService } from './restaurant.service';
+
+@Controller('restaurant')
+export class RestaurantController {
+    constructor(
+        private restaurantService: RestaurantService,
+    ) {}
+
+    @Post()
+    create(@Body() restaurant: RestaurantDto) {
+        return this.restaurantService.create(
+            restaurant,
+        );
+    }
 
     @Get()
-    async details() {
-        return await this.olaService.message();
+    async list() {
+        return this.restaurantService.list();
     }
 }
