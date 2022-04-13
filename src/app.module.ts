@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { AddsItemModule } from './addsItem/adds.item.module';
 import { DatabaseModule } from './config/database.module';
 import { ProductModule } from './product/product.module';
 import { RestaurantModule } from './restaurant/restaurant.module';
@@ -12,6 +13,7 @@ import { RestaurantModule } from './restaurant/restaurant.module';
         DatabaseModule,
         ProductModule,
         RestaurantModule,
+        AddsItemModule,
     ],
     controllers: [],
     providers: [],

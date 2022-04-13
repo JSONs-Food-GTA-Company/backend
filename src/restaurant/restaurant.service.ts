@@ -1,7 +1,4 @@
-import {
-    Inject,
-    Injectable,
-} from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { Product } from 'src/product/product.entity';
 import { RestaurantDto } from './dto';
 import { Restaurant } from './restaurant.entity';
@@ -14,25 +11,21 @@ export class RestaurantService {
     ) {}
 
     async create(restaurant: RestaurantDto) {
-        return await this.restaurantsRepository.create(
-            {
-                name: restaurant.name,
-                description:
-                    restaurant.description,
-                address: restaurant.address,
-                owner: restaurant.owner,
-                logo_url: restaurant.logo_url,
-                products: restaurant.products,
-            },
-        );
+        return await this.restaurantsRepository.create({
+            name: restaurant.name,
+            description: restaurant.description,
+            address: restaurant.address,
+            owner: restaurant.owner,
+            logo_url: restaurant.logo_url,
+            products: restaurant.products,
+        });
     }
 
     async list() {
-        const restaurant =
-            this.restaurantsRepository.findOne({
-                where: { id: 2 },
-                include: Product,
-            });
+        const restaurant = this.restaurantsRepository.findOne({
+            where: { id: 2 },
+            include: Product,
+        });
 
         return restaurant;
     }

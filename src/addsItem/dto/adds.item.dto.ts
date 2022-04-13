@@ -1,17 +1,13 @@
 import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
-export class ProductDto {
+export class AddsItemDto {
     @IsString()
     @IsNotEmpty()
-    name: string;
+    item: string;
 
-    @IsString()
+    @IsNumber()
     @IsNotEmpty()
-    description: string;
-
-    @IsString()
-    @IsNotEmpty()
-    image_url: string;
+    quantity: number;
 
     @IsNumber()
     @IsNotEmpty()
@@ -19,5 +15,5 @@ export class ProductDto {
 
     @IsNumber()
     @IsNotEmpty()
-    restaurant_id: number;
+    product_id: number;
 }

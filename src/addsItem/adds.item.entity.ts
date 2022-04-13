@@ -1,25 +1,21 @@
 import { FLOAT } from 'sequelize';
 import { Column, ForeignKey, Model, Table } from 'sequelize-typescript';
-import { AddsItem } from 'src/addsItem/adds.item.entity';
+import { Product } from 'src/product/product.entity';
 import { Restaurant } from 'src/restaurant/restaurant.entity';
 
 @Table
-export class Product extends Model {
+export class AddsItem extends Model {
     @Column
-    name: string;
+    item: string;
 
     @Column
-    description: string;
-
-    @Column
-    image_url: string;
+    quantity: number;
 
     @Column({
         type: FLOAT,
     })
     price;
 
-    @ForeignKey(() => Restaurant)
-    restaurant_id: Restaurant;
-
+    @ForeignKey(() => Product)
+    product_id: Product;
 }
