@@ -4,6 +4,7 @@ import {
     Inject,
     Injectable,
 } from '@nestjs/common';
+import { AddsItem } from 'src/addsItem/adds.item.entity';
 import { Product } from 'src/product/product.entity';
 import { RestaurantDto } from './dto';
 import { Restaurant } from './restaurant.entity';
@@ -49,7 +50,7 @@ export class RestaurantService {
     async listCardapio(restaurant_id: number) {
         const restaurant = this.restaurantsRepository.findOne({
             where: { id: restaurant_id },
-            include: Product,
+            include: [Product, { model: Product, include: [AddsItem] }],
             attributes: {
                 exclude: ['createdAt', 'updatedAt'],
             },

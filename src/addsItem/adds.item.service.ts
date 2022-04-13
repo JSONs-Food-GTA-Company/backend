@@ -1,3 +1,4 @@
+import { Product } from './../product/product.entity';
 import { Inject, Injectable } from '@nestjs/common';
 import { AddsItem } from './adds.item.entity';
 import { AddsItemDto } from './dto/adds.item.dto';
@@ -9,20 +10,16 @@ export class AddsItemService {
         private addsItemRepository: typeof AddsItem,
     ) {}
 
-    async create(item: AddsItemDto) {
+    async createAdds(item: AddsItemDto) {
         return await this.addsItemRepository.create({
             item: item.item,
             quantity: item.quantity,
             price: item.price,
-            restaurant_id: item.product_id,
+            product_id: item.product_id,
         });
     }
 
-    async list() {
-        const products = await this.addsItemRepository.findAll({
-            where: { restaurant_id: 2 },
-        });
-
-        return products;
+    async listAdds() {
+        return await this.addsItemRepository.findAll();
     }
 }

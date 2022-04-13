@@ -2,18 +2,18 @@ import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
 export class AddsItemDto {
     @IsString()
-    @IsNotEmpty()
+    @IsNotEmpty({ message: 'Descrição do item é obrigatório' })
     item: string;
 
     @IsNumber()
-    @IsNotEmpty()
+    @IsNotEmpty({ message: 'quantidade para adicionais é obrigatório' })
     quantity: number;
 
     @IsNumber()
-    @IsNotEmpty()
+    @IsNotEmpty({ message: 'preço dos adicionais é obrigatório' })
     price: number;
 
     @IsNumber()
-    @IsNotEmpty()
+    @IsNotEmpty({ message: 'ID do produto é obrigatório' })
     product_id: number;
 }

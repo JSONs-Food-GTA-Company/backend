@@ -8,11 +8,11 @@ export class AddsItemController {
 
     @Post()
     create(@Body() item: AddsItemDto) {
-        return this.addsItemService.create(item);
+        return this.addsItemService.createAdds(item);
     }
 
     @Get()
     list_products() {
-        return this.addsItemService.list();
+        return this.addsItemService.listAdds();
     }
 }

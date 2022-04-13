@@ -1,4 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
+import { AddsItem } from 'src/addsItem/adds.item.entity';
 import { ProductDto } from './dto';
 import { Product } from './product.entity';
 
@@ -20,7 +21,9 @@ export class ProductService {
     }
 
     async list() {
-        const products = await this.productsRepository.findAll();
+        const products = await this.productsRepository.findAll({
+            include: [AddsItem],
+        });
 
         return products;
     }
