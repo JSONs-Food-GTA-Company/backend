@@ -4,12 +4,9 @@ import { Product } from 'src/product/product.entity';
 import { Restaurant } from 'src/restaurant/restaurant.entity';
 
 @Table
-export class AddsItem extends Model {
+export class Additional extends Model {
     @Column
     item: string;
-
-    @Column
-    quantity: number;
 
     @Column({
         type: FLOAT,

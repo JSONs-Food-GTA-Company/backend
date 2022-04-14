@@ -3,9 +3,16 @@ import {
     Body,
     Controller,
     Get,
+    HttpCode,
     Param,
     Post,
 } from '@nestjs/common';
+import {
+    ApiBadRequestResponse,
+    ApiCreatedResponse,
+    ApiResponse,
+    ApiTags,
+} from '@nestjs/swagger';
 
 import { RestaurantDto } from './dto';
 import { RestaurantService } from './restaurant.service';
@@ -15,21 +22,38 @@ export class RestaurantController {
     constructor(private restaurantService: RestaurantService) {}
 
     @Post()
+    @ApiTags('Restaurant')
+    @ApiCreatedResponse({
+        status: 201,
+        description: 'Created',
+    })
+    @ApiBadRequestResponse({
+        status: 400,
+        description: 'Já existe um restaurante com esse nome!',
+    })
     create(@Body() restaurant: RestaurantDto) {
-        const created = this.restaurantService.create(restaurant);
-
-        return created;
+        return this.restaurantService.create(restaurant);
     }
 
     @Get()
+    @ApiTags('Restaurant')
+    @HttpCode(200)
+    @ApiResponse({
+        status: 200,
+        description: 'OK',
+    })
     async listAll() {
         return this.restaurantService.listAllRestaurants();
     }
 
     @Get(':id')
+    @ApiTags('Restaurant')
+    @HttpCode(200)
+    @ApiResponse({
+        status: 200,
+        description: 'OK',
+    })
     async listCardapio(@Param('id') id: string) {
-        const restaurant = await this.restaurantService.listCardapio(+id);
-
-        return restaurant;
+        return await this.restaurantService.listCardapio(+id);
     }
 }

@@ -6,7 +6,7 @@ import {
     Model,
     Table,
 } from 'sequelize-typescript';
-import { AddsItem } from 'src/addsItem/adds.item.entity';
+import { Additional } from 'src/additional/additional.entity';
 import { Restaurant } from 'src/restaurant/restaurant.entity';
 
 @Table
@@ -28,6 +28,6 @@ export class Product extends Model {
     @ForeignKey(() => Restaurant)
     restaurant_id: Restaurant;
 
-    @HasMany(() => AddsItem)
-    adds_item?: AddsItem[];
+    @HasMany(() => Additional)
+    adds_item?: Additional[];
 }
