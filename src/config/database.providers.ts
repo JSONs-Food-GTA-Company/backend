@@ -9,8 +9,8 @@ export const databaseProviders = [
         useFactory: async () => {
             const sequelize = new Sequelize({
                 dialect: 'postgres',
-                host: 'localhost',
-                port: 5434,
+                host: 'database',
+                port: 5432,
                 username: 'root',
                 password: 'password',
                 database: 'globotech',

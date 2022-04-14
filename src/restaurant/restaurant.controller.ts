@@ -10,6 +10,7 @@ import {
 import {
     ApiBadRequestResponse,
     ApiCreatedResponse,
+    ApiParam,
     ApiResponse,
     ApiTags,
 } from '@nestjs/swagger';
@@ -52,6 +53,10 @@ export class RestaurantController {
     @ApiResponse({
         status: 200,
         description: 'OK',
+    })
+    @ApiParam({
+        name: 'id',
+        type: 'string',
     })
     async listCardapio(@Param('id') id: string) {
         return await this.restaurantService.listCardapio(+id);
