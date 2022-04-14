@@ -592,7 +592,7 @@
     "webpack" "5.71.0"
     "webpack-node-externals" "3.0.0"
 
-"@nestjs/common@^7.0.0 || ^8.0.0", "@nestjs/common@^8.0.0":
+"@nestjs/common@^7.0.0 || ^8.0.0", "@nestjs/common@^7.0.8 || ^8.0.0", "@nestjs/common@^8.0.0":
   "integrity" "sha512-QHi7QcgH/5Jinz+SCfIZJkFHc6Cch1YsAEGFEhi6wSp6MILb0sJMQ1CX06e9tCOAjSlBwaJj4PH0eFCVau5v9Q=="
   "resolved" "https://registry.npmjs.org/@nestjs/common/-/common-8.4.4.tgz"
   "version" "8.4.4"
@@ -625,6 +625,11 @@
     "tslib" "2.3.1"
     "uuid" "8.3.2"
 
+"@nestjs/mapped-types@1.0.1":
+  "integrity" "sha512-NFvofzSinp00j5rzUd4tf+xi9od6383iY0JP7o0Bnu1fuItAUkWBgc4EKuIQ3D+c2QI3i9pG1kDWAeY27EMGtg=="
+  "resolved" "https://registry.npmjs.org/@nestjs/mapped-types/-/mapped-types-1.0.1.tgz"
+  "version" "1.0.1"
+
 "@nestjs/platform-express@^8.0.0":
   "integrity" "sha512-n/H83uzw154v6NVVSg6mniZIvYWtYp0dtNpU9O1qdEmDO030p0tBkeIRoDtpeOVvL2fW5PsHiUYS7HY4tNfykQ=="
   "resolved" "https://registry.npmjs.org/@nestjs/platform-express/-/platform-express-8.4.4.tgz"
@@ -653,6 +658,15 @@
   "version" "8.0.0"
   dependencies:
     "uuid" "8.3.2"
+
+"@nestjs/swagger@^5.2.1":
+  "integrity" "sha512-7dNa08WCnTsW/oAk3Ujde+z64JMfNm19DhpXasFR8oJp/9pggYAbYU927HpA+GJsSFJX6adjIRZsCKUqaGWznw=="
+  "resolved" "https://registry.npmjs.org/@nestjs/swagger/-/swagger-5.2.1.tgz"
+  "version" "5.2.1"
+  dependencies:
+    "@nestjs/mapped-types" "1.0.1"
+    "lodash" "4.17.21"
+    "path-to-regexp" "3.2.0"
 
 "@nestjs/testing@^8.0.0":
   "integrity" "sha512-eGj0Lbi0ONMkjDKbKQHoGX+ecGdrGRZ81I8i6fH4dx9jIR0p4MsBlW964f6Swn1MGkPm/xxomJmBWLPqZEjF7g=="
@@ -1708,12 +1722,12 @@
   "resolved" "https://registry.npmjs.org/cjs-module-lexer/-/cjs-module-lexer-1.2.2.tgz"
   "version" "1.2.2"
 
-"class-transformer@*", "class-transformer@^0.5.1":
+"class-transformer@*", "class-transformer@^0.2.0 || ^0.3.0 || ^0.4.0 || ^0.5.0", "class-transformer@^0.5.1":
   "integrity" "sha512-SQa1Ws6hUbfC98vKGxZH3KFY0Y1lm5Zm0SY8XX9zbK7FJCyVEac3ATW0RIpwzW+oOfmHE5PMPufDG9hCfoEOMw=="
   "resolved" "https://registry.npmjs.org/class-transformer/-/class-transformer-0.5.1.tgz"
   "version" "0.5.1"
 
-"class-validator@*", "class-validator@^0.13.2":
+"class-validator@*", "class-validator@^0.11.1 || ^0.12.0 || ^0.13.0", "class-validator@^0.13.2":
   "integrity" "sha512-yBUcQy07FPlGzUjoLuUfIOXzgynnQPPruyK1Ge2B74k9ROwnle1E+NxLWnUv5OLU8hA/qL5leAE9XnXq3byaBw=="
   "resolved" "https://registry.npmjs.org/class-validator/-/class-validator-0.13.2.tgz"
   "version" "0.13.2"
@@ -4765,7 +4779,7 @@
   "resolved" "https://registry.npmjs.org/swagger-ui-dist/-/swagger-ui-dist-4.10.3.tgz"
   "version" "4.10.3"
 
-"swagger-ui-express@^4.3.0":
+"swagger-ui-express@*", "swagger-ui-express@^4.3.0":
   "integrity" "sha512-jN46SEEe9EoXa3ZgZoKgnSF6z0w3tnM1yqhO4Y+Q4iZVc8JOQB960EZpIAz6rNROrDApVDwcMHR0mhlnc/5Omw=="
   "resolved" "https://registry.npmjs.org/swagger-ui-express/-/swagger-ui-express-4.3.0.tgz"
   "version" "4.3.0"
