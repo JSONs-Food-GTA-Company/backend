@@ -8,9 +8,6 @@ export class Additional extends Model {
     @Column
     item: string;
 
-    @Column
-    quantity: number;
-
     @Column({
         type: FLOAT,
     })

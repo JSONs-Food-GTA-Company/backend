@@ -13,7 +13,6 @@ export class AdditionalService {
     async createAdds(item: AdditionalDto) {
         return await this.additionalRepository.create({
             item: item.item,
-            quantity: item.quantity,
             price: item.price,
             product_id: item.product_id,
         });

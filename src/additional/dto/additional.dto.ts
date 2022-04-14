@@ -10,13 +10,6 @@ export class AdditionalDto {
     item: string;
 
     @ApiProperty({
-        example: 1,
-    })
-    @IsNumber()
-    @IsNotEmpty({ message: 'quantidade para adicionais é obrigatório' })
-    quantity: number;
-
-    @ApiProperty({
         example: 10.9,
     })
     @IsNumber()
